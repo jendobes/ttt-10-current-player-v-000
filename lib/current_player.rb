@@ -1,13 +1,12 @@
 def turn_count(board)
-  counter = 0
-  board.each {|value| if value == "X" || value == "O" then counter += 1 end}
-    return counter
+counter = 0
+board.each do |value|
+  if value == "X" || value == "O"
+    counter += 1
+  end
+  counter
 end
 
 def current_player(board)
-  if turn_count(board).even?
-    return "X"
-  else turn_count(board).odd?
-    return "O"
-  end
+  turn_count(board) % 2 == 0 ? "X" : "O"
 end
